@@ -17,7 +17,7 @@ public class Entitat {
         return telefon;
     }
 
-    public String getCorru() {
+    public String getCorreu() {
         return correu;
     }
 
@@ -25,6 +25,6 @@ public class Entitat {
         return "Entitat{" + "nom='" + nom + '\'' +", telefon='" + telefon + '\'' +", correu='" + correu + '\'' +'}';
     }
 
-    
+
 
 }
