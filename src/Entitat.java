@@ -9,15 +9,15 @@ public class Entitat {
         this.correu = correu;
     }
 
-    public String getNombre() {
+    public String getNom() {
         return nom;
     }
 
-    public String getTelefono() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public String getCorreo() {
+    public String getCorru() {
         return correu;
     }
 
