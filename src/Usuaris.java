@@ -8,7 +8,7 @@ public class Usuaris{
         this.correuElectronic = correuElectronic;
         this.codiPostal = codiPostal;
     }
-
+    
     public String getAlias() {
         return alias;
     }
@@ -32,6 +32,23 @@ public class Usuaris{
     public void setCodiPostal(int codiPostal) {
         this.codiPostal = codiPostal;
     }
+
+    public Usuaris copia(){
+        Usuaris copia=new Usuaris(alias,correuElectronic,codiPostal);
+        return copia;
+    }
+
+    public String toString() {
+        return "Alias: " + alias + "\nCorreu Electronic: " + correuElectronic + "\nCodi Postal: " + codiPostal;
+    }
+
+    public boolean equalsIgnoreCase(Usuaris usu){
+        if((codiPostal==usu.getCodiPostal())  && (alias.equalsIgnoreCase(usu.getAlias())) && (correuElectronic.equalsIgnoreCase(usu.getCorreuElectronic()))) {
+            return true;
+        }
+        else return false;
+    }
+}
 
     public String toString() {
         return "Alias: " + alias + "\nCorreu Electronic: " + correuElectronic + "\nCodi Postal: " + codiPostal;
