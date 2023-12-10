@@ -25,6 +25,9 @@ public class Entitat {
         return "Entitat{" + "nom='" + nom + '\'' +", telefon='" + telefon + '\'' +", correu='" + correu + '\'' +'}';
     }
 
-
+    public Entitat copia(){
+        Entitat copia=new Entitat(nom,telefon,correu);
+        return copia;
+    }
 
 }
