@@ -1,9 +1,9 @@
 public class LListaActivitat {
-    private Taller [] llista;
+    private Activitat [] llista;
     private int nElem;
 
     public LListaActivitat (int nActivitat){
-        llista = new Taller[nActivitat];
+        llista = new Activitat[nActivitat];
         nElem=0;
     }
 
@@ -39,21 +39,30 @@ public class LListaActivitat {
 
         LListaTaller tallersDisponibles = new LListaTaller(nElem);
         for(int i=0;i<nElem;i++){
-        if(getTallerPosicio(i).getCapacitatActual()<getTallerPosicio(i).getCapacitatMaxima()){
-            tallersDisponibles.afegirTaller(getTallerPosicio(i));
-        }
+            Activitat activitat=getActivitatPosicio(i);
+            if( activitat instanceof Taller)  {
+                Taller taller=(Taller) activitat;
+                int valorActual=taller.getCapacitatActual();
+                int valorMaxim=taller.getCapacitatMaxima();
+                if(valorActual<valorMaxim){
+                    tallersDisponibles.afegirTaller(taller);
+                }
+            }
         }
         return tallersDisponibles;
     }
 
     public Taller tallerMesExit(){
-        Taller taller=getTallerPosicio(0);
-        for(int i=1;i<nElem;i++){
-            Taller tallerActual= getTallerPosicio(i);
-        if(tallerActual.getCapacitatActual()>taller.getCapacitatActual()){
-            taller=tallerActual;
-        }
-
+         Taller taller=null;
+        for(int i=0;i<nElem;i++){
+           Activitat activitat=getActivitatPosicio(i);
+            if(activitat instanceof Taller){
+                Taller tallerActual=(Taller) activitat;
+                if( taller==null || tallerActual.getCapacitatActual()>taller.getCapacitatActual()){
+                    taller=tallerActual;
+                }
+            }
+        
         }
         return taller;
     }
