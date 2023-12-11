@@ -20,6 +20,13 @@ public class LListaEntitat {
         }
     }
 
+    public void afegirEntitat(Entitat novaEntitat) {
+        if (nElem < llista.length) {
+            llista[nElem] = novaEntitat;
+            nElem++;
+        }
+    }
+    
     public LListaEntitat copia(){
         LListaEntitat copia = new LListaEntitat(nElem);
         for(int i=0;i<nElem;i++){
