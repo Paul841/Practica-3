@@ -22,7 +22,7 @@ public class Entitat {
     }
 
     public String toString() {
-        return "Entitat{" + "nom='" + nom + '\'' +", telefon='" + telefon + '\'' +", correu='" + correu + '\'' +'}';
+        return nom +";" + telefon + ';' + correu + '\n';
     }
 
     public Entitat copia(){
