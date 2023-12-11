@@ -36,12 +36,13 @@ public class LListaReserva {
     }
 
     public Usuaris usuariMesTallers(){
-        Usuaris persona=new Usuaris(getReservaPosicio(0).getUsuariReserva().getAlias(),getReservaPosicio(0).getUsuariReserva().getCorreuElectronic(),getReservaPosicio(0).getUsuariReserva().getCodiPostal());
+        Usuaris persona;
         int max=0;
-        int total=0;
-        Usuaris personaMesAssist;
+        int total;
+        Usuaris personaMesAssist=new Usuaris(getReservaPosicio(0).getUsuariReserva().getAlias(),getReservaPosicio(0).getUsuariReserva().getCorreuElectronic(),getReservaPosicio(0).getUsuariReserva().getCodiPostal());
         for (int j=0;j<nElem;j++){
             persona=getReservaPosicio(j).getUsuariReserva();
+            total=0;
             for(int i=0;i<nElem;i++){
         
                 if(getReservaPosicio(i).getUsuariReserva().equalsIgnoreCase(persona)){
