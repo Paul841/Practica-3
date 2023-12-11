@@ -3,6 +3,8 @@ public class Taller extends Activitat {
     private int durada;
     private int capacitatActual;
     private int capacitatMaxima;
+    private int sumaPuntuacions;
+    private int personesPuntuat;
 
         public Taller(String nom, String lloc, int codiPostal, int dia, Entitat entitat,
                    int hora, int durada, int capacitat) {
@@ -11,6 +13,8 @@ public class Taller extends Activitat {
         this.durada = durada;
         capacitatMaxima=capacitat;
         capacitatActual=0;
+        sumaPuntuacions=0;
+        personesPuntuat=0;
     }
 
     public int getHora() {
@@ -28,6 +32,22 @@ public class Taller extends Activitat {
         return capacitatMaxima;
     }
 
+    public int getSumaPuntuacio() {
+        return sumaPuntuacions;
+    }
+
+    public int getPersonesPuntuat() {
+        return personesPuntuat;
+    }
+
+    public void setSumaPuntuacio(int suma) {
+        this.sumaPuntuacions = suma;
+    }
+    
+    public void setPersonesPuntuat(int persones ) {
+        this.personesPuntuat = persones;
+    }
+    
     public void setHora(int hora) {
         this.hora = hora;
     }
@@ -57,3 +77,4 @@ public class Taller extends Activitat {
 
     
 }
+
