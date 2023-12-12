@@ -42,15 +42,4 @@ public class Usuaris{
         return "Alias: " + alias + "\nCorreu Electronic: " + correuElectronic + "\nCodi Postal: " + codiPostal;
     }
 
-    public boolean equalsIgnoreCase(Usuaris usu){
-        if((codiPostal==usu.getCodiPostal())  && (alias.equalsIgnoreCase(usu.getAlias())) && (correuElectronic.equalsIgnoreCase(usu.getCorreuElectronic()))) {
-            return true;
-        }
-        else return false;
-    }
-}
-
-    public String toString() {
-        return "Alias: " + alias + "\nCorreu Electronic: " + correuElectronic + "\nCodi Postal: " + codiPostal;
-    }
 }
