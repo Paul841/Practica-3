@@ -67,6 +67,11 @@ public class Activitat {
         this.entitat = entitat;
     }
     
+    public Activitat copia(){
+        Activitat copia=new Activitat(nom,lloc,codiPostal,dia,entitat);
+        return copia;
+    }
+    
     public String toString() {
         return "Activitat{" + "codi='" + codi + '\'' +", nom='" + nom + '\'' +", lloc='" + lloc + '\'' +", codiPostal='" + codiPostal + '\'' +", dia='" + dia + '\'' +", entitat=" + entitat.getNom() +'}';
     }
