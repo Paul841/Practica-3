@@ -20,6 +20,13 @@ public class LListaUsuaris {
         }
     }
 
+    public void afegirUsuari(Usuaris usuari){
+        if(nElem<llista.length)     {
+            llista[nElem]=usuari.copia();
+            nElem++;    
+        }
+    }
+
     public LListaUsuaris copia(){
         LListaUsuaris copia = new LListaUsuaris(nElem);
         for(int i=0;i<nElem;i++){
