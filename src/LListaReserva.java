@@ -45,7 +45,7 @@ public class LListaReserva {
             total=0;
             for(int i=0;i<nElem;i++){
         
-                if(getReservaPosicio(i).getUsuariReserva().equalsIgnoreCase(persona)){
+                if(getReservaPosicio(i).getUsuariReserva().equals(persona)){
                     total++;
                 }
 
@@ -57,5 +57,15 @@ public class LListaReserva {
 
         }
         return personaMesAssist;
+    }
+
+    public LListaUsuaris usuarisTaller(Taller taller){
+        LListaUsuaris usuarisTaller=new LListaUsuaris(nElem);
+        for(int i=0;i<nElem;i++){
+            if(getReservaPosicio(i).getTaller().equals(taller)){
+                usuarisTaller.afegirUsuari(getReservaPosicio(i).getUsuariReserva());;
+            }
+        }
+        return usuarisTaller;
     }
 }
