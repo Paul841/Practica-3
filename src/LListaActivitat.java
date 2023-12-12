@@ -85,4 +85,61 @@ public class LListaActivitat {
         }
     }
 
+    public LListaActivitat dadesXerradaUsuari (String nom){
+        LListaActivitat xerradesUsuari = new LListaActivitat(nElem);
+        for(int i=0;i<nElem;i++){
+            Activitat activitat=getActivitatPosicio(i);
+            if(activitat instanceof Xerrada){
+                Xerrada xerrada=(Xerrada) activitat;
+                if(xerrada.getNomConferenciant().equals(nom)){
+                        xerradesUsuari.afegirActivitat(xerrada);
+                }
+            }
+        }
+        return xerradesUsuari;
+    }
+
+    public LListaActivitat activitatEntitatConcreta(Entitat entitat){
+        LListaActivitat entitats= new LListaActivitat(nElem);
+        for(int i=0;i<nElem;i++){
+            Activitat activitat=getActivitatPosicio(i);
+            if(activitat.getEntitat().equals(entitat)){
+                entitats.afegirActivitat(activitat);
+            }
+        }
+
+        return entitats;
+    }
+
+    public LListaActivitat activitatEntitatConcreta(int dia){
+        LListaActivitat activitatsDia= new LListaActivitat(nElem);
+        for(int i=0;i<nElem;i++){
+            Activitat activitat=getActivitatPosicio(i);
+            if(activitat.getDia()==dia){
+                activitatsDia.afegirActivitat(activitat);
+            }
+        }
+
+        return activitatsDia;
+    }
+
+    public LListaActivitat activitatEntitatConcreta(Entitat entitat,String tipus){
+        LListaActivitat visitesEntitat= new LListaActivitat(nElem);
+        boolean audioguia=false;
+        if(tipus.equals("audioguia")){
+            audioguia=true;
+        }
+        for(int i=0;i<nElem;i++){
+            Activitat activitat=getActivitatPosicio(i);
+            if(activitat instanceof Visita){
+                Visita visita=(Visita) activitat;
+                if(audioguia && visita.getAudioguia()){
+                    visitesEntitat.afegirActivitat(activitat);
+                }
+            }
+        }
+
+        return visitesEntitat;
+    }
+
 }
