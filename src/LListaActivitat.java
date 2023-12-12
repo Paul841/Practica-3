@@ -67,6 +67,22 @@ public class LListaActivitat {
         return taller;
     }
 
-    
+    public void donarBaixaTaller(Taller taller){
+        if(taller.getCapacitatActual()==0){
+            boolean trobat=false;
+            int i=0;
+            while(!trobat && i<nElem){
+                Activitat activitat=getActivitatPosicio(i);
+                if(activitat instanceof Taller && taller.equals(activitat)){
+                    for(int j=i;j<nElem-1;j++){
+                        llista[j]=llista[j+1];
+                    }
+                    nElem--;
+                    trobat=true;
+                }
+                i++;
+            }
+        }
+    }
 
 }
