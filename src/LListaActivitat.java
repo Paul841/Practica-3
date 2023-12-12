@@ -35,9 +35,9 @@ public class LListaActivitat {
         }   
     }
 
-    public LListaTaller tallersDisponibles(){
+    public LListaActivitat llistaTallersDisponibles(){
 
-        LListaTaller tallersDisponibles = new LListaTaller(nElem);
+        LListaActivitat tallersDisponibles = new LListaActivitat(nElem);
         for(int i=0;i<nElem;i++){
             Activitat activitat=getActivitatPosicio(i);
             if( activitat instanceof Taller)  {
@@ -45,7 +45,7 @@ public class LListaActivitat {
                 int valorActual=taller.getCapacitatActual();
                 int valorMaxim=taller.getCapacitatMaxima();
                 if(valorActual<valorMaxim){
-                    tallersDisponibles.afegirTaller(taller);
+                    tallersDisponibles.afegirActivitat(activitat);
                 }
             }
         }
@@ -66,4 +66,7 @@ public class LListaActivitat {
         }
         return taller;
     }
+
+    
+
 }
