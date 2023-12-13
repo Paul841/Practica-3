@@ -63,8 +63,7 @@ public class Arxius {
         try{
             BufferedWriter g = new BufferedWriter(new FileWriter("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\entitat.txt"));
             for (int i=0; i<llista.getnEntitats(); i++){ 
-                g.write(llista.getEntitatsPosicio(i).getNom() + ";" + llista.getEntitatsPosicio(i).getTelefon() + ";" + llista.getEntitatsPosicio(i).getCorreu());
-                g.newLine();
+                g.write(llista.getEntitatsPosicio(i).getNom() + ";" + llista.getEntitatsPosicio(i).getTelefon() + ";" + llista.getEntitatsPosicio(i).getCorreu()+ ";");
             }
             g.close();
         }
@@ -127,21 +126,20 @@ public class Arxius {
                     g.write("Taller" + ";" + taller.getCodi() + ";" + taller.getNom() + ";" + taller.getLloc() + ";" +
                             taller.getCodiPostal() + ";" + taller.getDia() + ";" + taller.getEntitat() + ";" +
                             taller.getHora() + ";" + taller.getDurada()+ ";" + taller.getCapacitatActual()+ ";" + 
-                            taller.getCapacitatMaxima()+";"+ taller.getSumaPuntuacio()+taller.getPersonesPuntuat());
+                            taller.getCapacitatMaxima()+ ";" + taller.getSumaPuntuacio()+  ";" + taller.getPersonesPuntuat()+";");
                 }
                 else if(activitat instanceof Visita){
                     Visita visita = (Visita) llista.getActivitatPosicio(i);
                     g.write( "Visita" + ";" + visita.getCodi() + ";" + visita.getNom() + ";" + visita.getLloc() + ";" +
                             visita.getCodiPostal() + ";" + visita.getDia() + ";" + visita.getEntitat() + ";" 
-                            + visita.getAudioguia() + ";" + visita.getAdaptadaCegues());
+                            + visita.getAudioguia() + ";" + visita.getAdaptadaCegues()+";");
                 }
                 else if(activitat instanceof Xerrada){
                     Xerrada xerrada = (Xerrada) llista.getActivitatPosicio(i);
                     g.write( "Xerrada" + ";" + xerrada.getCodi() + ";" + xerrada.getNom() + ";" + xerrada.getLloc() + ";" +
                             xerrada.getCodiPostal() + ";" + xerrada.getDia() + ";" + xerrada.getEntitat() + ";"
-                             + xerrada.getNomConferenciant());
+                             + xerrada.getNomConferenciant()+";");
                 }
-                g.newLine();
             }
             g.close();
         }
@@ -159,17 +157,17 @@ public class Arxius {
     //metode per llegir un Arxiu de text no serialitzat
     public static void llegirArxiuActivitat(LlistaActivitat llista) {
         try {
-            Scanner f = new Scanner(new File("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\entitat.txt"));
+            Scanner f = new Scanner(new File("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\Activitat.txt"));
             String textactivitat;
             Activitat activitat = null;
             String tipusactivitat = "X";
-
+            boolean acabat=false;
             f.useDelimiter(";");
             int cont = 0;
 
             while (f.hasNext()) {
                 textactivitat = f.next();
-
+                acabat=false;
                 if (cont == 0) {
                     switch (textactivitat) {
                         case "Taller":
@@ -188,20 +186,118 @@ public class Arxius {
                 } else {
                     switch (tipusactivitat) {
                         case "Taller":
-                            llegirAtributsTaller(cont, textactivitat, activitat);
+                            Taller taller = (Taller) activitat;
+                            switch (cont) {
+                                case 1:
+                                    activitat.setCodi(textactivitat);
+                                    break;
+                                case 2:
+                                    activitat.setNom(textactivitat);
+                                    break;
+                                case 3:
+                                    activitat.setLloc(textactivitat);
+                                    break;
+                                case 4:
+                                    activitat.setCodiPostal(textactivitat);
+                                    break;
+                                case 5:
+                                    activitat.setDia(textactivitat);
+                                    break;
+                                case 6:
+                                    activitat.setEntitat(textactivitat);
+                                    break;
+                                case 7:
+                                    taller.setHora(Integer.parseInt(textactivitat));
+                                    break;
+                                case 8:
+                                    taller.setDurada(Integer.parseInt(textactivitat));
+                                    break;
+                                case 9:
+                                    taller.setCapacitatActual(Integer.parseInt(textactivitat));
+                                    break;
+                                case 10:
+                                    taller.setCapacitatMaxima(Integer.parseInt(textactivitat));
+                                    break;
+                                case 11:
+                                    taller.setSumaPuntuacio(Integer.parseInt(textactivitat));
+                                    break;
+                                case 12:
+                                    taller.setPersonesPuntuat(Integer.parseInt(textactivitat));
+                                    cont=0;
+                                    acabat=true;
+                                    break;
+                            }
                             break;
                         case "Visita":
-                            llegirAtributsVisita(cont, textactivitat, activitat);
+                            Visita visita = (Visita) activitat;
+
+                            switch (cont) {
+                            case 1:
+                                activitat.setCodi(textactivitat);
+                                break;
+                            case 2:
+                                activitat.setNom(textactivitat);
+                                break;
+                            case 3:
+                                activitat.setLloc(textactivitat);
+                                break;
+                            case 4:
+                                activitat.setCodiPostal(textactivitat);
+                                break;
+                            case 5:
+                                activitat.setDia(textactivitat);
+                                break;
+                            case 6:
+                                activitat.setEntitat(textactivitat);
+                                break;
+                            case 7:
+                                visita.setAudioguia(Boolean.parseBoolean(textactivitat));
+                                break;
+                            case 8:
+                                visita.setAdaptadaCegues(Boolean.parseBoolean(textactivitat));
+                                cont=0;
+                                acabat=true;
+                                break;
+                            }
                             break;
                         case "Xerrada":
-                            llegirAtributsXerrada(cont, textactivitat, activitat);
-                            break;
-                    }
-                    }   
+                            Xerrada xerrada = (Xerrada) activitat;
 
-            cont++;
-            if (cont == 0) {
+                            switch (cont) {
+                            case 1:
+                                activitat.setCodi(textactivitat);
+                                break;
+                            case 2:
+                                activitat.setNom(textactivitat);
+                                break;
+                            case 3:
+                                activitat.setLloc(textactivitat);
+                                break;
+                            case 4:
+                                activitat.setCodiPostal(textactivitat);
+                                break;
+                            case 5:
+                                activitat.setDia(textactivitat);
+                                break;
+                            case 6:
+                                activitat.setEntitat(textactivitat);
+                                break;
+                            case 7:
+                                xerrada.setNomConferenciant(textactivitat);
+                                cont=0;
+                                acabat=true;
+                                break;
+                            }
+                                break;
+                    }
+                }   
+
+           
+            if (acabat) {
                 llista.afegirActivitat(activitat);
+            }
+            else{
+                cont++;
             }
         }
 
@@ -211,115 +307,6 @@ public class Arxius {
     }
 }
 
-    // Llegeix els atributs de taller
-    private static void llegirAtributsTaller(int cont, String textactivitat, Activitat activitat) {
-        Taller taller = (Taller) activitat;
-
-        switch (cont) {
-            case 1:
-                activitat.setCodi(textactivitat);
-                break;
-            case 2:
-                activitat.setNom(textactivitat);
-                break;
-            case 3:
-                activitat.setLloc(textactivitat);
-                break;
-            case 4:
-                activitat.setCodiPostal(textactivitat);
-                break;
-            case 5:
-                activitat.setDia(textactivitat);
-                break;
-            case 6:
-                activitat.setEntitat(textactivitat);
-                break;
-            case 7:
-                taller.setHora(Integer.parseInt(textactivitat));
-                break;
-            case 8:
-                taller.setDurada(Integer.parseInt(textactivitat));
-                break;
-            case 9:
-                taller.setCapacitatActual(Integer.parseInt(textactivitat));
-                break;
-            case 10:
-                taller.setCapacitatMaxima(Integer.parseInt(textactivitat));
-                break;
-            case 11:
-                taller.setSumaPuntuacio(Integer.parseInt(textactivitat));
-                break;
-            case 12:
-                taller.setPersonesPuntuat(Integer.parseInt(textactivitat));
-                cont=0;
-                break;
-        }
-    }
-
-    // llegeix els atributs de Visita
-    private static void llegirAtributsVisita(int cont, String textactivitat, Activitat activitat) {
-        Visita visita = (Visita) activitat;
-
-        switch (cont) {
-            case 1:
-                activitat.setCodi(textactivitat);
-                break;
-            case 2:
-                activitat.setNom(textactivitat);
-                break;
-            case 3:
-                activitat.setLloc(textactivitat);
-                break;
-            case 4:
-                activitat.setCodiPostal(textactivitat);
-                break;
-            case 5:
-                activitat.setDia(textactivitat);
-                break;
-            case 6:
-                activitat.setEntitat(textactivitat);
-                break;
-            case 7:
-                visita.setAudioguia(Boolean.parseBoolean(textactivitat));
-                break;
-            case 8:
-                visita.setAdaptadaCegues(Boolean.parseBoolean(textactivitat));
-                cont=0;
-                break;
-        }
-    }
-
-    // Llegeix els atributs de Xerrada
-    private static void llegirAtributsXerrada(int cont, String textactivitat, Activitat activitat) {
-        Xerrada xerrada = (Xerrada) activitat;
-
-        switch (cont) {
-            case 1:
-                activitat.setCodi(textactivitat);
-                break;
-            case 2:
-                activitat.setNom(textactivitat);
-                break;
-            case 3:
-                activitat.setLloc(textactivitat);
-                break;
-            case 4:
-                activitat.setCodiPostal(textactivitat);
-                break;
-            case 5:
-                activitat.setDia(textactivitat);
-                break;
-            case 6:
-                activitat.setEntitat(textactivitat);
-                break;
-            case 7:
-                xerrada.setNomConferenciant(textactivitat);
-                
-                cont=0;
-                break;
-        }
-    }
-
 
 
 
@@ -328,8 +315,7 @@ public class Arxius {
         try{
             BufferedWriter g = new BufferedWriter(new FileWriter("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\usuaris.txt"));
             for (int i=0; i<llista.getnUsuaris(); i++){ 
-                g.write(llista.getUsuariPosicio(i).getAlias() + ";" + llista.getUsuariPosicio(i).getCorreuElectronic() + ";" + llista.getUsuariPosicio(i).getCodiPostal());
-                g.newLine();
+                g.write(llista.getUsuariPosicio(i).getAlias() + ";" + llista.getUsuariPosicio(i).getCorreuElectronic() + ";" + llista.getUsuariPosicio(i).getCodiPostal()+ ";");
             }
             g.close();
         }
