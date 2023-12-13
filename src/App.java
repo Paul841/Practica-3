@@ -66,7 +66,9 @@ public class App {
                     System.out.println(llistaActivitat.activitatsPerNomEntitat(triarentitat));
                     break;
                 case 3:
-                    
+                    System.out.println("Indica el dia:");
+                    String triardia = scanner.nextLine();
+                    System.out.println(llistaActivitat.activitatDiaConcret(triardia));
                     break;
                 case 4:
                     
