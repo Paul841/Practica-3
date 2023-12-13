@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 public class Arxius {
 
     //metode que guarda en un arxiu els objectes de classes serialitzades
-    public static void storeData (LlistaReserva llista) {
+    public static void escriureArxiuReserva(LlistaReserva llista) {
         ObjectOutputStream outputFile;
         try {
             outputFile = new ObjectOutputStream(new FileOutputStream("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\arxiuReserva.ser"));
@@ -31,7 +31,7 @@ public class Arxius {
     }
 
     //metode per llegir els objectes de arxius seralitzats
-    public static void readData (LlistaReserva llista) {
+    public static void llegirArxiuReserva (LlistaReserva llista) {
         ObjectInputStream inputFile;
         try {
             inputFile = new ObjectInputStream(new FileInputStream("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\arxiuReserva.ser"));
