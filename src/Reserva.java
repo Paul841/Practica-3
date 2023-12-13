@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 public class Reserva implements Serializable{
 private int codiReserva;
 private Usuaris usuari;
