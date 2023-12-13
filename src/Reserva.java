@@ -30,6 +30,11 @@ public int getValoracio() {
     return valoracio;
 }
 
+public Taller getTaller(){
+    return taller;
+}
+
+
 public Reserva copia(){
     Reserva copia=new Reserva(codiReserva,usuari,codiTaller,taller);
     return copia;
