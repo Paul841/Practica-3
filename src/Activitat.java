@@ -2,11 +2,19 @@ public class Activitat {
     private String codi;
     private String nom;
     private String lloc;
-    private int codiPostal;
-    private int dia;
-    private Entitat entitat;
+    private String codiPostal;
+    private String dia;
+    private String entitat;
 
-    public Activitat(String nom, String lloc, int codiPostal, int dia, Entitat entitat) {
+    public Activitat(){
+        this.nom = "X";
+        this.lloc = "X";
+        this.codiPostal = "X";
+        this.dia = "X";
+        this.entitat = "XXXXXXX";
+    }
+
+    public Activitat(String nom, String lloc, String codiPostal, String dia, String entitat) {
         this.nom = nom;
         this.lloc = lloc;
         this.codiPostal = codiPostal;
@@ -35,11 +43,11 @@ public class Activitat {
         return lloc;
     }
 
-    public int getCodiPostal() {
+    public String getCodiPostal() {
         return codiPostal;
     }
 
-    public int getDia() {
+    public String getDia() {
         return dia;
     }
 
@@ -59,13 +67,18 @@ public class Activitat {
         this.codiPostal = codiPostal;
     }
 
-    public void setDia(int dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
 
-    public void setEntitat(Entitat entitat) {
+    public void setEntitat(String entitat) {
         this.entitat = entitat;
     }
+    
+    public void setCodi(String codi){
+        this.codi=codi;
+    }
+    
     
     public Activitat copia(){
         Activitat copia=new Activitat(nom,lloc,codiPostal,dia,entitat);
