@@ -61,7 +61,9 @@ public class App {
 
                     break;
                 case 2:
-                    
+                    System.out.println("Indica la entitat:");
+                    String triarentitat = scanner.nextLine();
+                    System.out.println(llistaActivitat.activitatsPerNomEntitat(triarentitat));
                     break;
                 case 3:
                     
