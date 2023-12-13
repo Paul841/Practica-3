@@ -1,9 +1,17 @@
-public class Usuaris{
+import java.io.Serializable;
+
+public class Usuaris implements Serializable{
     private String alias;
     private String correuElectronic;
-    private int codiPostal;
+    private String codiPostal;
 
-    public Usuaris(String alias, String correuElectronic, int codiPostal) {
+    public Usuaris(){
+        this.alias = "X";
+        this.correuElectronic = "X";
+        this.codiPostal = "X";
+    }
+    
+    public Usuaris(String alias, String correuElectronic, String codiPostal) {
         this.alias = alias;
         this.correuElectronic = correuElectronic;
         this.codiPostal = codiPostal;
@@ -17,7 +25,7 @@ public class Usuaris{
         return correuElectronic;
     }
 
-    public int getCodiPostal() {
+    public String getCodiPostal() {
         return codiPostal;
     }
 
@@ -29,7 +37,7 @@ public class Usuaris{
         this.correuElectronic = correuElectronic;
     }
 
-    public void setCodiPostal(int codiPostal) {
+    public void setCodiPostal(String codiPostal) {
         this.codiPostal = codiPostal;
     }
 
