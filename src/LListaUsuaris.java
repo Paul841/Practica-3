@@ -34,4 +34,12 @@ public class LListaUsuaris {
         }
         return copia; 
     }
+
+    public String toString(){
+        String frase= "LlistaUsuaris\n";
+        for(int i=0; i<nElem;i++){
+            frase += llista[i].toString();
+        }
+        return frase;
+    }
 }
