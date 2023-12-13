@@ -1,4 +1,4 @@
-public class Reserva {
+public class Reserva implements Serializable{
 private int codiReserva;
 private Usuaris usuari;
 private Taller taller;
