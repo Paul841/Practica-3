@@ -7,6 +7,10 @@ public class LListaEntitat {
         nElem=0;
     }
 
+    public Entitat[] getmidaLlista(){
+        return llista;
+    }
+
     public int getnEntitats(){
         return nElem;
     }
