@@ -1,0 +1,1 @@
+Taller;Ar;Taller de Pintura;Art Studio;12345;2023-12-15;Art Center;14;3;0;30;0;0;Taller;Ar;Taller de Pintura;Art Studio;12345;2023-12-15;Art Center;14;3;0;30;0;0;Xerrada;Ar;Conferència d'Art;Conference Hall;67890;2023-12-22;Art Center;John Doe;Visita;Ar;Visita al Museu;Museum;54321;2023-12-20;Art Museum;true;true;
