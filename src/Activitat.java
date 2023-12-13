@@ -5,6 +5,7 @@ public class Activitat {
     private String codiPostal;
     private String dia;
     private String entitat;
+    private int numeroCodi = 100;
 
     public Activitat(){
         this.nom = "X";
@@ -23,10 +24,13 @@ public class Activitat {
 
         // Generar el codi automáticamente (primeres 3 lletres del nom de l'entitat + número)
         this.codi = generarCodi();
+
     }
 
     public String generarCodi(){
-        String codi = entitat.getNom().substring(0, 2);
+        String codi = Entitat.getNom().substring(0, 2);
+        codi= codi + Integer.toString(numeroCodi);
+        numeroCodi++;  
         return codi;
     }
 
