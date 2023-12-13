@@ -3,6 +3,12 @@ public class Entitat {
     private String telefon;
     private String correu;
 
+    public Entitat() {
+        this.nom = "X";
+        this.telefon = "X";
+        this.correu = "X";
+    }
+
     public Entitat(String nom, String telefon, String correu) {
         this.nom = nom;
         this.telefon = telefon;
@@ -20,6 +26,19 @@ public class Entitat {
     public String getCorreu() {
         return correu;
     }
+
+    public void setNom(String nom){
+        this.nom = nom;
+    }
+
+    public void setTelefon(String telefon){
+        this.telefon = telefon;
+    }
+
+    public void setCorreu(String correu){
+        this.correu = correu;
+    }
+
 
     public String toString() {
         return nom +";" + telefon + ';' + correu + '\n';
