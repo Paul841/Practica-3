@@ -6,6 +6,10 @@ public class Xerrada extends Activitat {
         this.nomConferenciant = nomConferenciant;
     }
 
+    public Xerrada(){
+        nomConferenciant="X";
+    }
+
     public String getNomConferenciant() {
         return nomConferenciant;
     }
@@ -13,6 +17,11 @@ public class Xerrada extends Activitat {
     public void setNomConferenciant(String nomConferenciant) {
         this.nomConferenciant = nomConferenciant;
     }
+
+    public Activitat copia() {
+        return new Xerrada(getNom(), getLloc(), getCodiPostal(), getDia(), getEntitat(), nomConferenciant);
+    }
+
     
     public String toString() {
         return super.toString() + "\nNom del Conferenciant: " + nomConferenciant;
