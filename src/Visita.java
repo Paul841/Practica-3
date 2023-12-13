@@ -9,6 +9,12 @@ public class Visita extends Activitat {
         this.adaptadaCegues = adaptadaCegues;
     }
 
+    public Visita(){
+        super("X", "X", "X", "X", "XXXXXXX");
+        audioguia=false;
+        adaptadaCegues=false;
+    }
+
     public boolean getAudioguia() {
         return audioguia;
     }
@@ -24,6 +30,11 @@ public class Visita extends Activitat {
     public void setAdaptadaCegues(boolean adaptadaCegues) {
         this.adaptadaCegues = adaptadaCegues;
     }
+
+    public Activitat copia() {
+        return new Visita(getNom(), getLloc(), getCodiPostal(), getDia(), getEntitat(), audioguia, adaptadaCegues);
+    }
+
 
     public String toString() {
         return super.toString() +"\nAudioguia: " + audioguia + "\nAdaptada per Cegues: " + adaptadaCegues;
