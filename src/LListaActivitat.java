@@ -115,7 +115,7 @@ public class LListaActivitat {
         LListaActivitat activitatsDia= new LListaActivitat(nElem);
         for(int i=0;i<nElem;i++){
             Activitat activitat=getActivitatPosicio(i);
-            if(activitat.getDia()==dia){
+            if(Integer.parseInt(activitat.getDia())==dia){
                 activitatsDia.afegirActivitat(activitat);
             }
         }
