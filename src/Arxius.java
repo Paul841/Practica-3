@@ -18,7 +18,7 @@ public class Arxius {
         try {
             outputFile = new ObjectOutputStream(new FileOutputStream("C:\\Users\\proon\\Javaprojects\\PRACTICA 3\\prAACtica 3\\data\\arxiuReserva.ser"));
             for (int i=0; i<llista.getNReserves(); i++) {
-            outputFile.writeObject(llista.getReserva(i));
+            outputFile.writeObject(llista.getReservaPosicio(i));
             }
             outputFile.close();
         }
