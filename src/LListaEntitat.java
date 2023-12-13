@@ -38,5 +38,13 @@ public class LListaEntitat {
         }
         return copia; 
     }
+
+    public String toString(){
+        String frase="Llista Entitat:\n";
+        for(int i=0;i<nElem;i++){
+            frase += llista[i].toString() + "\n";
+        }
+        return frase;
+    }
     
 }
