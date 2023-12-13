@@ -12,11 +12,73 @@ public class App {
         Arxius.llegirArxiuReserva(llistaReserva);
         Arxius.llegirArxiuEntitat(llistaEntitat);
 
-        //Per a comprovar per pantalla que s'hagin llegit be
-       System.out.println(llistaActivitat.getActivitatPosicio(0));
-       System.out.println(llistaUsuaris.getUsuariPosicio(0));
-       System.out.println(llistaReserva.getReservaPosicio(0));
-       System.out.println(llistaEntitat.getEntitatsPosicio(0));
+
+    Scanner scanner = new Scanner(System.in);
+    int opcio;
+
+        do {
+            System.out.println("\nMenú d'opcions:");
+            System.out.println("1. Mostrar les dades de qualsevol llista que tingueu definida.\r");
+            System.out.println("2. Obtenir i mostrar la llista d'activitats que ofereix una entitat concreta.");
+            System.out.println("3. Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
+            System.out.println("4. Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
+            System.out.println("15. Sortir");
+            System.out.print("Escull una opció: ");
+
+            opcio = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcio) {
+                case 1:
+                    int triarllista;
+                    System.out.println("Tria la llista que vols visualitzar:");
+                    System.out.println("1. Llista Activitats:");
+                    System.out.println("2. Llista Entitats:");
+                    System.out.println("3. Llista Reserves:");
+                    System.out.println("4. Llista Usuaris:");
+
+                    triarllista = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (triarllista) {
+                        case 1:
+                            System.out.println(llistaActivitat.toString());
+                            break;
+                    
+                        case 2:
+                            System.out.println(llistaEntitat.toString());
+                            break;
+                        case 3:
+                            System.out.println(llistaReserva.toString());
+                            break;
+                        case 4:
+                            System.out.println(llistaUsuaris.toString());
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    
+                    break;
+                case 15:
+                    System.out.println("exit");
+                    break;
+                default:
+                    System.out.println("Opció no vàlida. Torna a provar.");
+            }
+        } while (opcio != 15);
+
+        scanner.close();
+    }
 
         
     }
