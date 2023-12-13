@@ -142,4 +142,12 @@ public class LListaActivitat {
         return visitesEntitat;
     }
 
+    public String toString(){
+        String frase="Llista Activitats:";
+        for(int i=0; i<nElem; i++){
+            frase += llista[i].toString()+ "\n";
+        }
+        return frase;
+    }
+
 }
