@@ -142,6 +142,16 @@ public class LListaActivitat {
         return visitesEntitat;
     }
 
+    public LlistaActivitat activitatsPerNomEntitat(String nom){
+        LlistaActivitat activitats = new LlistaActivitat(nElem);
+        for(int i=0;i<nElem;i++){
+            if(nom.equals(llista[i].getEntitat())){
+                activitats.afegirActivitat(llista[i]);
+            }
+        }
+        return activitats;
+    }
+
     public String toString(){
         String frase="Llista Activitats:";
         for(int i=0; i<nElem; i++){
