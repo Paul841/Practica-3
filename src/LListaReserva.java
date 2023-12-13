@@ -68,4 +68,12 @@ public class LListaReserva {
         }
         return usuarisTaller;
     }
+
+    public String toString(){
+        String frase= "Llista Reserva \n";
+        for(int i=0; i<nElem;i++){
+            frase += llista[i].toString() + "\n";
+        }
+        return frase;
+    }
 }
