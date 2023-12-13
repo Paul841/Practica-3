@@ -111,17 +111,17 @@ public class LListaActivitat {
         return entitats;
     }
 
-    public LListaActivitat activitatEntitatConcreta(int dia){
-        LListaActivitat activitatsDia= new LListaActivitat(nElem);
+    public LlistaActivitat activitatDiaConcret(String dia){
+        LlistaActivitat activitatsDia= new LlistaActivitat(nElem);
         for(int i=0;i<nElem;i++){
             Activitat activitat=getActivitatPosicio(i);
-            if(Integer.parseInt(activitat.getDia())==dia){
+            if(dia.equals(activitat.getDia())){
                 activitatsDia.afegirActivitat(activitat);
             }
         }
-
-        return activitatsDia;
-    }
+    
+            return activitatsDia;
+        }
 
     public LListaActivitat activitatEntitatConcreta(Entitat entitat,String tipus){
         LListaActivitat visitesEntitat= new LListaActivitat(nElem);
