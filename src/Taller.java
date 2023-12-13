@@ -1,10 +1,16 @@
-public class Taller extends Activitat {
+import java.io.Serializable;
+
+public class Taller extends Activitat implements Serializable{
     private int hora;
     private int durada;
     private int capacitatActual;
     private int capacitatMaxima;
     private int sumaPuntuacions;
     private int personesPuntuat;
+
+        public Taller() {
+        super("X", "X", "X", "X", "XXXXXXX"); 
+        }
 
         public Taller(String nom, String lloc, int codiPostal, int dia, Entitat entitat,
                    int hora, int durada, int capacitat) {
@@ -69,7 +75,7 @@ public class Taller extends Activitat {
         return copia;
     }
 
-
+    @Override
     public String toString() {
         return super.toString() +"\nHora: " + hora + "\nDurada: " + durada +"\nCapacitat màxima: " + capacitatMaxima + "\n" + //
                 "Capacitat actual:"+capacitatActual;
