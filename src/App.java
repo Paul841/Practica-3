@@ -71,7 +71,7 @@ public class App {
                     System.out.println(llistaActivitat.activitatDiaConcret(triardia));
                     break;
                 case 4:
-                    System.out.println(llistaUsuaris.toString());
+                    System.out.println(llistaActivitat.tallersPlacesDisponibles());
 
                             /*S'ha afegir a la classe taller 
                              *  public boolean tePlacesDisponibles(){
