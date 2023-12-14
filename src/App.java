@@ -71,7 +71,34 @@ public class App {
                     System.out.println(llistaActivitat.activitatDiaConcret(triardia));
                     break;
                 case 4:
-                    
+                    System.out.println(llistaUsuaris.toString());
+
+                            /*S'ha afegir a la classe taller 
+                             *  public boolean tePlacesDisponibles(){
+                                    if(capacitatActual<capacitatMaxima){
+                                        return true;
+                                    }
+                                    else return false;
+                                }
+                             */
+
+                            /*S'ha d'afegir a la classe LListaActivitat:
+                             *  public LListaActivitat tallersPlacesDisponibles() throws TaulaPlena{
+        
+                                    LListaActivitat llistatallersDisp = new LListaActivitat(nElem);
+                                    for(int i=0;i<nElem;i++){
+                                        if(llista[i] instanceof Taller){
+                                            Taller taller = (Taller) llista[i];
+                                            if(taller.tePlacesDisponibles()){
+                                                llistatallersDisp.afegirActivitat(llista[i]);
+                                            }
+                                        }
+                                    }
+                                    return llistatallersDisp;
+        
+                                }
+                             * 
+                             */
                     break;
                 case 15:
                     System.out.println("exit");
